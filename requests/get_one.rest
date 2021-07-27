@@ -1,0 +1,1 @@
+GET http://localhost:3001/api/student/60ff3bf9f1d2f3073c50eae1
