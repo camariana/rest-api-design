@@ -1,12 +1,15 @@
-const express = require('express')
-const { json, urlencoded } =  require('body-parser')
-const morgan = require('morgan')
-const config = require('./utils/config')
-const cors = require('cors')
-const connect = require('./utils/connect')
-const middleware = require('./utils/middleware')
-const logger = require('./utils/logger')
+import express from 'express'
+import bodyParser from 'body-parser'
+import morgan from 'morgan'
+import cors from 'cors'
+import config from './utils/config.js'
+import connect from './utils/connect.js'
+import middleware from './utils/middleware.js'
+import logger from './utils/logger.js'
 
+const { json, urlencoded } = bodyParser
+
+import studentRouter from './resources/student/student.router.js'
 
 const app = express()
 
@@ -15,7 +18,7 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-
+app.use('/api/student', studentRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
@@ -33,4 +36,4 @@ const start = async () => {
   }
 }
 
-module.exports = start
+export default start

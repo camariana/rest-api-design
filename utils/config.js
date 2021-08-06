@@ -1,6 +1,8 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
+dotenv.config()
 
 const PORT = process.env.PORT
+const JWT_SECRET = process.env.JWT_SECRET
 let MONGODB_URI = ''
 const env = process.env.NODE_ENV
 
@@ -15,7 +17,8 @@ switch(env) {
     MONGODB_URI = process.env.LOCAL_MONGODB_URI
 }
 
-module.exports = {
+export default {
   MONGODB_URI,
-  PORT
+  PORT,
+  JWT_SECRET
 }
