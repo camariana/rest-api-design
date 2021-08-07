@@ -1,0 +1,17 @@
+PUT http://localhost:3001/api/student/610e3d3c68bc6c9113640905 HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGUzNzk5YzBiNDc5ODZiZjEyMjJiYSIsImVtYWlsIjoiY2FtYXJpYW5hQGdjLmVkdS5nbSIsImlhdCI6MTYyODMyMTY4OSwiZXhwIjoxNjI4MzI1Mjg5fQ.eR97e-jC5cbEMU6Ihwa8FLlmpoA-AUopYTvCnlDKd1E
+
+{
+  "likes": 9
+}
+
+###
+PUT http://localhost:3001/api/user HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGUzNzk5YzBiNDc5ODZiZjEyMjJiYSIsImVtYWlsIjoiY2FtYXJpYW5hQGdjLmVkdS5nbSIsImlhdCI6MTYyODMyMTY4OSwiZXhwIjoxNjI4MzI1Mjg5fQ.eR97e-jC5cbEMU6Ihwa8FLlmpoA-AUopYTvCnlDKd1E
+
+{
+  "email": "camariana@gmail.com",
+  "password": "secrete1"
+}
