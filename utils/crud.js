@@ -1,8 +1,10 @@
+import logger from './logger.js'
+
 export const createOne = model => async (request, response) => {
-  //const createdBy = request.user._id
+  const createdBy = request.user._id
 
   try {
-    const doc = await model.create({ ...request.body, /* createdBy */ })
+    const doc = await model.create({ ...request.body, createdBy })
     response.status(201).json({ data: doc })
   } catch (error) {
     logger.error(error)
@@ -13,7 +15,7 @@ export const createOne = model => async (request, response) => {
 export const getOne = model => async (request, response) => {
   try {
     const doc = await model
-      .findOne({ /* createdBy: request.user._id, _id: request.params.id */ })
+      .findOne({ createdBy: request.user._id, _id: request.params.id })
       .lean()
       .exec()
 
@@ -31,9 +33,10 @@ export const getOne = model => async (request, response) => {
 export const getMany = model => async (request, response) => {
   try {
     const docs = await model
-      .find({ /* createdBy: request.user._id */ })
+      .find({ createdBy: request.user._id })
       .lean()
       .exec()
+
     response.status(200).json({ data: docs })
   } catch (error) {
     logger.error(error)
