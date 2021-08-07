@@ -3,6 +3,7 @@ dotenv.config()
 
 const PORT = process.env.PORT
 const JWT_SECRET = process.env.JWT_SECRET
+const JWT_EXPIRE = 3600
 let MONGODB_URI = ''
 const env = process.env.NODE_ENV
 
@@ -20,5 +21,6 @@ switch(env) {
 export default {
   MONGODB_URI,
   PORT,
-  JWT_SECRET
+  JWT_SECRET,
+  JWT_EXPIRE
 }
